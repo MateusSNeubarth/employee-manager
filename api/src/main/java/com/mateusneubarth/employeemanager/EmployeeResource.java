@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mateusneubarth.employeemanager.model.Employee;
 import com.mateusneubarth.employeemanager.service.EmployeeService;
 
+import jakarta.transaction.Transactional;
+
 @RestController
 @RequestMapping("/employee")
 public class EmployeeResource {
@@ -50,6 +52,7 @@ public class EmployeeResource {
         return new ResponseEntity<>(updateEmployee, HttpStatus.OK);
     }
 
+    @Transactional
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteEmployee(@PathVariable("id") Long id) {
         employeeService.deleteEmployee(id); 

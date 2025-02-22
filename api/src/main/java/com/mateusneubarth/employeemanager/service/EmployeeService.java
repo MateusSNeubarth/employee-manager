@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
 
 import com.mateusneubarth.employeemanager.exceptions.UserNotFoundException;
 import com.mateusneubarth.employeemanager.model.Employee;
-import com.mateusneubarth.employeemanager.repository.EmployeeRepository;
+import com.mateusneubarth.employeemanager.repository.IEmployeeRepository;
 
 @Service
 public class EmployeeService {
 
-    private final EmployeeRepository employeeRepository;
-
     @Autowired
+    private final IEmployeeRepository employeeRepository;
+
     public EmployeeService() {
         this.employeeRepository = null;
     }
